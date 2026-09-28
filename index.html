@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhonguista Market 🇲🇿</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span>🛒</span> Nhonga<span>Market</span></div>
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <nav id="nav">
+    <a href="#inicio">Início</a>
+    <a href="#categorias">Categorias</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#vender">Vender</a>
+    <a href="#conta">Conta</a>
+  </nav>
+  <button class="cart-btn" onclick="openCart()">🛒 <b id="cartCount">0</b></button>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div>
+    <p class="tag">🇲🇿 Marketplace para Moçambique</p>
+    <h1>Compra e venda<br><span>de tudo num só lugar.</span></h1>
+    <p>Encontre produtos novos e usados de vendedores da sua comunidade.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#produtos">Explorar produtos</a>
+      <a class="btn ghost" href="#vender">Começar a vender</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-icon">🛍️</div>
+    <h3>Venda o que quiser</h3>
+    <p>Publique produtos, defina o preço e receba pedidos.</p>
+  </div>
+</section>
+
+<section class="search-area">
+  <div class="search">
+    <span>🔎</span>
+    <input id="searchInput" oninput="renderProducts()" placeholder="Pesquisar produtos...">
+  </div>
+  <select id="conditionFilter" onchange="renderProducts()">
+    <option value="">Todos</option>
+    <option value="Novo">Novos</option>
+    <option value="Usado">Usados</option>
+  </select>
+</section>
+
+<section id="categorias" class="section">
+  <div class="section-head"><div><p class="eyebrow">Explorar</p><h2>Categorias</h2></div></div>
+  <div class="categories">
+    <button onclick="setCategory('Todos')">🛍️<span>Todos</span></button>
+    <button onclick="setCategory('Eletrónicos')">📱<span>Eletrónicos</span></button>
+    <button onclick="setCategory('Moda')">👕<span>Moda</span></button>
+    <button onclick="setCategory('Casa')">🏠<span>Casa</span></button>
+    <button onclick="setCategory('Acessórios')">⌚<span>Acessórios</span></button>
+    <button onclick="setCategory('Outros')">📦<span>Outros</span></button>
+  </div>
+</section>
+
+<section id="produtos" class="section">
+  <div class="section-head">
+    <div><p class="eyebrow">Marketplace</p><h2>Produtos</h2></div>
+    <span id="categoryLabel" class="muted">Todos</span>
+  </div>
+  <div id="productGrid" class="product-grid"></div>
+</section>
+
+<section id="vender" class="sell-section">
+  <div>
+    <p class="eyebrow">Para vendedores</p>
+    <h2>Transforme os seus produtos em vendas.</h2>
+    <p>Crie o seu anúncio, adicione fotos, preço, stock e informações de entrega.</p>
+  </div>
+  <button class="btn primary" onclick="openSell()">Publicar produto</button>
+</section>
+
+<section id="conta" class="section account">
+  <div class="account-card">
+    <div><p class="eyebrow">Minha conta</p><h2>Área do vendedor</h2><p id="accountStatus">Ainda não iniciou sessão.</p></div>
+    <button class="btn primary" onclick="openLogin()">Entrar / Cadastrar</button>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div><strong>🛒 NhongaMarket</strong><p>Marketplace de produtos novos e usados.</p></div>
+  <div><p>Comprar · Vender · Entrega · Ajuda</p><small>© 2026 NhongaMarket</small></div>
+</footer>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
